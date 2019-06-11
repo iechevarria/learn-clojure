@@ -46,3 +46,26 @@
 ;;      ignores all of them, and returns the number 100.
 
 (defn always-thing [& args] 100)
+
+
+
+;; 6) Define a function make-thingy which takes a single argument x. It should
+;;      return another function, which takes any number of arguments and always
+;;      returns x.
+
+(defn make-thingy [x] (fn [& args] x))
+
+;; Tests
+(let [n (rand-int Integer/MAX_VALUE)
+      f (make-thingy n)]
+  (assert (= n (f)))
+  (assert (= n (f 123)))
+  (assert (= n (apply f 123 (range)))))
+
+
+
+;; 7) Define a function triplicate which takes another function and calls it
+;;      three times, without any arguments.
+
+(defn triplicate [f] (f) (f) (f))
+
