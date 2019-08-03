@@ -98,3 +98,13 @@
 (= ((fn [iter] (nth iter (- (count iter) 2))) (list 1 2 3 4 5)) 4)
 (= ((fn [iter] (nth iter (- (count iter) 2))) ["a" "b" "c"]) "b")
 (= ((fn [iter] (nth iter (- (count iter) 2))) [[1 2] [3 4]]) [1 2])
+
+
+;; 21) Nth Element
+;; Took forever because I didn't realize my installation was broken
+(fn [list index] (first (drop index list)))
+
+(= ((fn [list index] (first (drop index list))) '(4 5 6 7) 2) 6)
+(= ((fn [list index] (first (drop index list))) [:a :b :c] 0) :a)
+(= ((fn [list index] (first (drop index list))) [1 2 3 4] 1) 2)
+(= ((fn [list index] (first (drop index list))) '([1 2] [3 4] [5 6]) 2) [5 6])
